@@ -96,7 +96,7 @@ Tasks
 0. Install a redis instance
 mandatory
 Download, extract, and compile the latest stable Redis version (higher than 5.0.7 - https://redis.io/download/):
-
+```
 $ wget http://download.redis.io/releases/redis-6.0.10.tar.gz
 $ tar xzf redis-6.0.10.tar.gz
 $ cd redis-6.0.10
@@ -112,6 +112,8 @@ OK
 "School"
 Kill the server with the process id of the redis-server (hint: use ps and grep)
 $ kill [PID_OF_Redis_Server]
+
+```
 Copy the dump.rdb from the redis-5.0.7 directory into the root of the Queuing project.
 
 Requirements:
@@ -151,6 +153,7 @@ Redis client not connected to the server: Error: Redis connection to 127.0.0.1:6
 Redis client not connected to the server: Error: Redis connection to 127.0.0.1:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
 Redis client not connected to the server: Error: Redis connection to 127.0.0.1:6379 failed - connect ECONNREFUSED 127.0.0.1:6379
 ^C
+```
 bob@dylan:~$ 
 bob@dylan:~$ ./src/redis-server > /dev/null 2>&1 &
 [1] 2073
@@ -171,6 +174,7 @@ bob@dylan:~$ npm run dev 0-redis_client.js
 Redis client connected to the server
 ^C
 bob@dylan:~$
+```
 Repo:
 
 GitHub repository: alx-backend
@@ -825,6 +829,7 @@ When the job is completed, print in the console: Seat reservation job JOB_ID com
 When the job failed, print in the console: Seat reservation job JOB_ID failed: ERROR_MESSAGE
 bob@dylan:~$ curl localhost:1245/reserve_seat ; echo ""
 {"status":"Reservation in process"}
+```
 bob@dylan:~$ 
 Add the route GET /process that:
 
@@ -839,6 +844,7 @@ bob@dylan:~$ curl localhost:1245/process ; echo ""
 bob@dylan:~$ 
 bob@dylan:~$ curl localhost:1245/available_seats ; echo ""
 {"numberOfAvailableSeats":"49"}
+```
 bob@dylan:~$ 
 and in the server terminal:
 
@@ -855,7 +861,8 @@ bob@dylan:~$ for n in {1..50}; do curl localhost:1245/reserve_seat ; echo ""; do
 {"status":"Reservation are blocked"}
 {"status":"Reservation are blocked"}
 {"status":"Reservation are blocked"}
-bob@dylan:~$ 
+bob@dylan:~$
+```
 Requirements:
 
 Make sure to use promisify with Redis
